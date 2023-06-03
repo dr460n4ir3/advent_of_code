@@ -2,17 +2,17 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const __dirname = path.resolve();
-const filePath = path.resolve(__dirname, 'test.txt');
+const filePath = (__dirname, 'input.txt'); // let program know where to find the input file
 
 // the following function will return an array of sums
 const findInput = (filePath) => {
   try {
     const testInput = fs.readFileSync(filePath, 'utf-8');
-    const inputArray = testInput.split('\n');
+    const inputArray = testInput.split('\n'); // split the input into an array of lines
 
     let currentSum = 0;
     const sumArray = inputArray.reduce((acc, line, index) => {
-      const trimmedLine = line.trim();
+      const trimmedLine = line.trim(); // remove any whitespace
 
       if (trimmedLine === '') {
         acc.push(currentSum);
@@ -31,9 +31,10 @@ const findInput = (filePath) => {
       return acc;
     }, []);
 
-    return sumArray;
-  } catch (error) {
-    console.error('Error:', error);
+    return sumArray; // return the array of sums
+  } 
+  catch (error) {
+    console.error('Error:', error); // if there is an error, return an error message
     return [];
   }
 };
@@ -57,10 +58,10 @@ const returnSumOfTopThree = (filePath) => {
   return topThree.reduce((acc, num) => acc + num, 0);
 };
 
-console.log(findInput(filePath));
-console.log(returnHighest(filePath)); // part 1
+console.log(findInput(filePath)); // part 1
+console.log(returnHighest(filePath)); // part 1- continued
 console.log(returnTopThree(filePath)); // part 2
-console.log(returnSumOfTopThree(filePath)); // part 2- continued
+console.log(returnSumOfTopThree(filePath)); // part 2 - continued
 
 
 // Path: calorieCounting/app.js
