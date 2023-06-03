@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const __dirname = path.resolve();
-const filePath = (__dirname, 'input.txt'); // let program know where to find the input file
+const filePath = (__dirname, 'test.txt'); // let program know where to find the input file
 
 // the following function will return an array of sums
 const findInput = (filePath) => {
